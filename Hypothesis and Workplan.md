@@ -22,3 +22,6 @@ Withaferin-A is a steroidal lactone that has been traditionally used as ayurvedi
 withaferin-A could play a role in various types of cancers by inducing apoptosis. In general this lactone upregulates and downregulates
 a total of over 12,000 genes. Looking at these genes it becomes ideal to see what these up/downregulated genes normally do and to see if
 the lacton is able to aid in overall cancer treatment. 
+
+Pipeline:
+Take Raw Data provided -> run QA/QC -> Use cutadapt to get rid of unwanted base pairs -> Do differential gene expression analysis compared to healthy cells -> Generate a write up and show some interesting gene expression differences.

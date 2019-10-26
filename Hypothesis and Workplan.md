@@ -4,7 +4,7 @@ Essentually want to retest the run they did in the original data set. In addtion
 Original Data: https://www.ncbi.nlm.nih.gov/bioproject/565770
 Paper for OG data: There is no paper for this study. There are a total of 6 runs within this study. Unknown if all should be done or if just to focus on one?
 
-Primary literature that will help me in proving my hyothesis.
+Primary literature that will help me in proving my hyothesis that withaferin A could be used in cancer treatment by modifying gene expression.
 1. Withaferin A Induces Cell Death Selectively in Androgen-Independent Prostate Cancer Cells but Not in Normal Fibroblast Cells
 2. Par-4-Dependent Apoptosis by the Dietary Compound Withaferin A in Prostate Cancer Cells
 3. Withaferin A-Induced Apoptosis in Human Breast Cancer Cells Is Mediated by Reactive Oxygen Species
@@ -12,9 +12,9 @@ Primary literature that will help me in proving my hyothesis.
 5. Withaferin A Associated Differential Regulation of Inflammatory Cytokines
 6. Regiospecific Synthesis of Ring A Fused Withaferin A Isoxazoline Analogues: Induction of Premature Senescence by W-2b in Proliferating Cancer Cells
 7. A Novel Combination of Withaferin A and Sulforaphane Inhibits Epigenetic Machinery, Cellular Viability and Induces Apoptosis of Breast Cancer Cells
-8. 
-9.
-10.
+8. Withaferin A suppresses the growth of myelodysplasia and leukemia cell lines by inhibiting cell cycle progression
+9. Molecular targets and mechanisms of cancer prevention and treatment by withaferin a, a naturally occurring steroidal lactone.
+10. Withaferin A induces apoptosis through the generation of thiol oxidation in human head and neck cancer cells.
 
 
 Background information:

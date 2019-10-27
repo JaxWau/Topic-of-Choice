@@ -1,7 +1,9 @@
 Hypothesis: The genes that were found to have roles in cancer treatment with wilfram A can be seen as changed within normal, non-cancer, cells.
-Essentually want to retest the run they did in the original data set. In addtion I want to see if I can figure out some of the genes that were found to be up/downregulated and see thir "normal" uses. 
+Essentually want to retest the run they did in the original data set. In addtion I want to see if I can figure out some of the genes that were found to be up/downregulated and see thir "normal" uses within the genome. 
 
 Original Data: https://www.ncbi.nlm.nih.gov/bioproject/565770
+More from the original data: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM4080848
+The infomraiton is very recent (Sept. 2019) so no paper out yet, however their pipline and methods are. 
 Paper for OG data: There is no paper for this study. There are a total of 6 runs within this study. Unknown if all should be done or if just to focus on one?
 
 Primary literature that will help me in proving my hyothesis that withaferin A could be used in cancer treatment by modifying gene expression.

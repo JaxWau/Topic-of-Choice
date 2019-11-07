@@ -1,2 +1,9 @@
 November 6th Update
-Downloaded 3 data sets from the SRA website. (Will need to potentially download more)
+Downloaded SRA toolkit from NCBI so that I could download the SRA data I needed. 
+
+Code for download: wget "http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/current/sratoolkit.current-centos_linux64.tar.gz"
+  Code taken from the NCBI GitHub that explained how to download and run the SRA Toolkit
+Following the download of the toolkit I then un-tarred the file as in order to use it I needed to
+  Code:  tar -xzf sratoolkit.current-centos_linux64.tar.gz
+  This un tarred the program so that I could use it. Again, these steps were take from NCBI GitHub explaining the process. 
+  

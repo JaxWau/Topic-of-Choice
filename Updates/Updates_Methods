@@ -6,4 +6,12 @@ Code for download: wget "http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/current/srato
 Following the download of the toolkit I then un-tarred the file as in order to use it I needed to
   Code:  tar -xzf sratoolkit.current-centos_linux64.tar.gz
   This un tarred the program so that I could use it. Again, these steps were take from NCBI GitHub explaining the process. 
+
+Nov 7th Update
+
+Once the porgram was un-tarred I could change into its bin directory and being downloading my SRA reads. 
+
+WA_01 download code: ./prefetch SRR10125328 (This downloaded the first read.) Then due to having the downloaded file be in a different
+directory the following code was used to move it
+  cp WA_01.sra ~/scratch/topic_of_Choice/
   

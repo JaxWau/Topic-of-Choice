@@ -15,3 +15,10 @@ WA_01 download code: ./prefetch SRR10125328 (This downloaded the first read.) Th
 directory the following code was used to move it
   cp WA_01.sra ~/scratch/topic_of_Choice/
   
+Nov 9th Updates
+Following the code listed in the Nov 7th update the following three reads were downloaded and moved into the new directory:
+WA_02: ./prefetch SRR10125329
+WA_03: ./prefetch SRR10125330
+
+Following the succesful download of the WA reads, the .sra files then needed to be converted to .fasta/.fastq files. The following code was used
+  Code: (Will go here once code is figured out.)

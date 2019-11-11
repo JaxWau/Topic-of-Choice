@@ -21,4 +21,12 @@ WA_02: ./prefetch SRR10125329
 WA_03: ./prefetch SRR10125330
 
 Following the succesful download of the WA reads, the .sra files then needed to be converted to .fasta/.fastq files. The following code was used
-  Code: (Will go here once code is figured out.)
+Due to me being unable to find code to convert .sra to .fastq the following code was used to re-download the SRA files for Withaferin-A reads
+and the DMSO reads. 
+
+Nov 11th, Update
+Code for fasterq-dump
+WA_01: ./fasterq-dump SRR10125328 -O ~/scratch/topic_of_Choice/Wilfarin_A/ (This code allowed me to download the SRA file as two .fastq files
+that represented a froward read and a reverse read. It also put it into the Wilfarin_A directory)
+
+

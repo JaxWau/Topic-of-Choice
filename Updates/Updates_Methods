@@ -28,5 +28,12 @@ Nov 11th, Update
 Code for fasterq-dump
 WA_01: ./fasterq-dump SRR10125328 -O ~/scratch/topic_of_Choice/Wilfarin_A/ (This code allowed me to download the SRA file as two .fastq files
 that represented a froward read and a reverse read. It also put it into the Wilfarin_A directory)
+WA_02: ./fasterq-dump SRR10125329 -O ~/scratch/topic_of_Choice/Wilfarin_A
+WA_03: ./fasterq-dump SRR10125330 -O ~/scratch/topic_of_Choice/Wilfarin_A
+
+Code for DMSO Fasterq-dump
+D_01: ./fasterq-dump SRR10125325 -O ~/scratch/topic_of_Choice/DMSO
+D_02: ./fasterq-dump SRR10125326 -O ~/scratch/topic_of_Choice/DMSO
+D_03: ./fasterq-dump SRR10125327 -O ~/scratch/topic_of_Choice/DMSO
 
 

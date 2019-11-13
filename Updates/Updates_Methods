@@ -36,4 +36,16 @@ D_01: ./fasterq-dump SRR10125325 -O ~/scratch/topic_of_Choice/DMSO
 D_02: ./fasterq-dump SRR10125326 -O ~/scratch/topic_of_Choice/DMSO
 D_03: ./fasterq-dump SRR10125327 -O ~/scratch/topic_of_Choice/DMSO
 
+Nov 13th Updates
+Downloaded the Human Genome and Transcriptome using the following commands
+Reference Genome: wget http://ftp.ensembl.org/pub/release-86/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
+Following the download I then needed to unpackage the compressed file using this line of code: gunzip file.gtf.gz
+The resulting file was a .fna or technically a fasta file which could then be used to map the reads to. 
+
+Transcriptome: wget http://ftp.ensembl.org/pub/release-86/gtf/homo_sapiens/Homo_sapiens.GRCh38.86.gtf.gz
+gunzip Homo_sapiens.GRCh38.86.gtf.gz
+
+
+Referneces:https://www.gungorbudak.com/blog/2018/05/16/how-to-download-hg38-grch38-fasta-human-reference-genome/
+
 

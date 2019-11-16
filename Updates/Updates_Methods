@@ -1,3 +1,5 @@
+https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM4080848
+
 November 6th Update
 Downloaded SRA toolkit from NCBI so that I could download the SRA data I needed. 
 
@@ -42,10 +44,18 @@ Reference Genome: wget http://ftp.ensembl.org/pub/release-86/fasta/homo_sapiens/
 Following the download I then needed to unpackage the compressed file using this line of code: gunzip file.gtf.gz
 The resulting file was a .fna or technically a fasta file which could then be used to map the reads to. 
 
-Transcriptome: wget http://ftp.ensembl.org/pub/release-86/gtf/homo_sapiens/Homo_sapiens.GRCh38.86.gtf.gz
-gunzip Homo_sapiens.GRCh38.86.gtf.gz
-
+Transcriptome: Need to figure this out.
 
 Referneces:https://www.gungorbudak.com/blog/2018/05/16/how-to-download-hg38-grch38-fasta-human-reference-genome/
+
+November 16th Updates
+RNASeq Pipline: Raw Reads -> QA/QC (fastqc and cuadapt) -> bowtie2/mapping program (map reads to Human Genome) might need to modify reads to they map better
+-> N/A (need to figure out what to do here. Maybe STAR/RStudio)Essentially need a table to insert into R for DESeq2.
+
+Ran QA/QC for two reads W_01 and DMSO_1
+Code for DMSO_1: fastqc DMSO_1_R1.fastq (for read 1) and fastqc DMSO_1_R2.fastq (for read 2)
+Code for DMSO_2: fastqc DMSO_2_R1.fastq (for read 1) and fastqc DMSO_2_R2.fastq (for read 2)
+Code for WA_1: fastq WA_1_R1.fastq (for read 1) and fastqc WA_1_R2.fastq (for read 2)
+Code for WA_2: fastqc WA_2_R1.fastq (for read 1) and fastqc WA_2_R2.fastq (for read 2)
 
 

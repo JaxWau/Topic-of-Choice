@@ -58,4 +58,8 @@ Code for DMSO_2: fastqc DMSO_2_R1.fastq (for read 1) and fastqc DMSO_2_R2.fastq 
 Code for WA_1: fastq WA_1_R1.fastq (for read 1) and fastqc WA_1_R2.fastq (for read 2)
 Code for WA_2: fastqc WA_2_R1.fastq (for read 1) and fastqc WA_2_R2.fastq (for read 2)
 
-
+November 17th Update
+Overall quality of reads seems good, only red "X" recived is on Sequence Duplicaiton Levels, otherwise no other issues with the reads. 
+Note: this is pre cutadapt, will look to potenitally run cutadapt if needed. Right now reads are great with no need to do so. 
+Note: There were not illumina adapters in the data, might need to cutadapt or see if some can be found? Email Techtmann.
+Also began to work on paper and presentation.

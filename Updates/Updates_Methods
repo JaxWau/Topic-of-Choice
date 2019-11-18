@@ -49,8 +49,9 @@ Transcriptome: Need to figure this out.
 Referneces:https://www.gungorbudak.com/blog/2018/05/16/how-to-download-hg38-grch38-fasta-human-reference-genome/
 
 November 16th Updates
-RNASeq Pipline: Raw Reads -> QA/QC (fastqc and cuadapt) -> bowtie2/mapping program (map reads to Human Genome) might need to modify reads to they map better
--> N/A (need to figure out what to do here. Maybe STAR/RStudio)Essentially need a table to insert into R for DESeq2.
+RNASeq Pipline: Raw Reads -> QA/QC (fastqc and cuadapt) -> Mapping/alignment of reads with STAR -> transcript counting and assembly using RSEM ->
+Generation of Count table and metadata for DESeq2 (obtaiend following assembly) -> DESeq2 for differential gene analysis -> Generation of graphs and charts to aid in
+the showing of results.
 
 Ran QA/QC for two reads W_01 and DMSO_1
 Code for DMSO_1: fastqc DMSO_1_R1.fastq (for read 1) and fastqc DMSO_1_R2.fastq (for read 2)
@@ -60,6 +61,9 @@ Code for WA_2: fastqc WA_2_R1.fastq (for read 1) and fastqc WA_2_R2.fastq (for r
 
 November 17th Update
 Overall quality of reads seems good, only red "X" recived is on Sequence Duplicaiton Levels, otherwise no other issues with the reads. 
-Note: this is pre cutadapt, will look to potenitally run cutadapt if needed. Right now reads are great with no need to do so. 
-Note: There were not illumina adapters in the data, might need to cutadapt or see if some can be found? Email Techtmann.
-Also began to work on paper and presentation.
+Reads are good following confirmation from Techtmann, primary reason is that there are so many reads and a lot of data. 
+
+November 18th Update
+Ran cutadapt with the following parameters on the fastqc files (Insert code here)
+Also rechecked fastqc following cuadapt to see if there were any differences. 
+Began work on presentation and paper: essentially got ppt and paper formatted with a litte data here and there. 

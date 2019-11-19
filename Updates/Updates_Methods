@@ -64,6 +64,8 @@ Overall quality of reads seems good, only red "X" recived is on Sequence Duplica
 Reads are good following confirmation from Techtmann, primary reason is that there are so many reads and a lot of data. 
 
 November 18th Update
-Ran cutadapt with the following parameters on the fastqc files (Insert code here)
-Also rechecked fastqc following cuadapt to see if there were any differences. 
+Ran cutadapt with the following parameters on the fastqc files: cutadapt -q 20,20 -m 50 --max-n 0 -o  WA_1_R1.cutadapt.fastq -p WA_1_R2.cutadapt.fastq WA_1_R1.fastq WA_1_R2.fastq
+Following cutadapt completion (0.2%) or 14,530,079 reads were cut. Due to this not having a strong impact on data, cutadapt was not
+used for furthur runs. 
+Also rechecked fastqc following cuadapt to see if there were any differences or if data actually needed to be cutadapted. 
 Began work on presentation and paper: essentially got ppt and paper formatted with a litte data here and there. 

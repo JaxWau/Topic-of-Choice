@@ -75,3 +75,13 @@ Ran cutadapt for the remaining WA and DMSO reads using the same code as used on 
 WA_2:cutadapt -q 20,20 -m 50 --max-n 0 -o  WA_2_R1.cutadapt.fastq -p WA_2_R2.cutadapt.fastq WA_2_R1.fastq WA_2_R2.fastq
 DMSO 1: cutadapt -q 20,20 -m 50 --max-n 0 -o  DMSO_1_R1.cutadapt.fastq -p DMSO_1_R2.cutadapt.fastq DMSO_1_R1.fastq DMSO_1_R2.fastq
 DMSO 2: cutadapt -q 20,20 -m 50 --max-n 0 -o  DMSO_2_R1.cutadapt.fastq -p DMSO_2_R2.cutadapt.fastq DMSO_2_R1.fastq DMSO_2_R2.fastq
+
+After using cutadapt on the reads, while the overall amount of bases was small (.2%) some issues were aliveated. 
+
+Also generated the genome index for use with STAR. Code shown below
+gunzip Homo_sapiens.GRCh38.86.gtf.gz
+gunzip Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
+
+Code for index: STAR --runMode genomeGenerate --genomeDir star_data --genomeFastaFiles Homo_sapiens.GRCh38.dna.primary_assembly.fa --sjdbGTFfile Homo_sapiens.GRCh38.86.gt
+
+Following this RSEM will be run and RStudio will be used for final analysis. Will need to being on paper and presentaiton. 

@@ -68,4 +68,10 @@ Ran cutadapt with the following parameters on the fastqc files: cutadapt -q 20,2
 Following cutadapt completion (0.2%) or 14,530,079 reads were cut. Due to this not having a strong impact on data, cutadapt was not
 used for furthur runs. 
 Also rechecked fastqc following cuadapt to see if there were any differences or if data actually needed to be cutadapted. 
-Began work on presentation and paper: essentially got ppt and paper formatted with a litte data here and there. 
+Began work on presentation and paper: essentially got ppt and paper formatted with a litte data here and there.
+
+November 22nd Update
+Ran cutadapt for the remaining WA and DMSO reads using the same code as used on the 17th. Also added more to the paper and presentation. 
+WA_2:cutadapt -q 20,20 -m 50 --max-n 0 -o  WA_2_R1.cutadapt.fastq -p WA_2_R2.cutadapt.fastq WA_2_R1.fastq WA_2_R2.fastq
+DMSO 1: cutadapt -q 20,20 -m 50 --max-n 0 -o  DMSO_1_R1.cutadapt.fastq -p DMSO_1_R2.cutadapt.fastq DMSO_1_R1.fastq DMSO_1_R2.fastq
+DMSO 2: cutadapt -q 20,20 -m 50 --max-n 0 -o  DMSO_2_R1.cutadapt.fastq -p DMSO_2_R2.cutadapt.fastq DMSO_2_R1.fastq DMSO_2_R2.fastq

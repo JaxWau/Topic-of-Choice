@@ -84,4 +84,8 @@ gunzip Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
 
 Code for index: STAR --runMode genomeGenerate --genomeDir star_data --genomeFastaFiles Homo_sapiens.GRCh38.dna.primary_assembly.fa --sjdbGTFfile Homo_sapiens.GRCh38.86.gt
 
-Following this RSEM will be run and RStudio will be used for final analysis. Will need to being on paper and presentaiton. 
+Following this RSEM will be run and RStudio will be used for final analysis. Will need to being on paper and presentaiton.
+
+November 24th Update
+Began adding to paper and presentation. Knocked out "Backgroung/Into" and part of methods. Will need to add more as the week progresses
+and will need to run the reads through STAR and RSEM. 

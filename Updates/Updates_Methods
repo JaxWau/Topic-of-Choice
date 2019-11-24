@@ -87,5 +87,5 @@ Code for index: STAR --runMode genomeGenerate --genomeDir star_data --genomeFast
 Following this RSEM will be run and RStudio will be used for final analysis. Will need to being on paper and presentaiton.
 
 November 24th Update
-Began adding to paper and presentation. Knocked out "Backgroung/Into" and part of methods. Will need to add more as the week progresses
+Began adding to paper and presentation. Knocked out part of "Backgroung/Into" and part of methods. Will need to add more as the week progresses
 and will need to run the reads through STAR and RSEM. 

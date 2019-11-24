@@ -93,4 +93,11 @@ and will need to run the reads through STAR and RSEM.
 It was noted that when trying to begin the making of the reference with STAR that there was a FATAL error in opening one of the files
 this occured because one of the files was entered incorrectly. Rerunning the program will hopefully alleviate the issue and then
 the process can continue. (Line said to assemble with .gt not .gtf. If FATAL error occurs again will look to rerun)
+
 The following code was rerun : STAR --runMode genomeGenerate --genomeDir star_data --genomeFastaFiles Homo_sapiens.GRCh38.dna.primary_assembly.fa --sjdbGTFfile Homo_sapiens.GRCh38.86.gtf
+Code ran well with no errors. Following the successful run the DMSO reads were then run through STAR for mapping and alignment. 
+
+DMSO1: STAR --genomeDir star_data --readFilesIn DMSO_1_R1.cutadapt.fastq DMSO_1_R2.cutadapt.fastq --outSAMtype BAM SortedByCoordinate --outSAMunmapped Within --twopassMode Basic --outFilterMultimapNmax 1 --quantMode TranscriptomeSAM --outFileNamePrefix "DMSO1"
+(Remember that /fastq files need to be  in the same foler as you are running STAR)
+
+

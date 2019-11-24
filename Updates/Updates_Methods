@@ -89,3 +89,8 @@ Following this RSEM will be run and RStudio will be used for final analysis. Wil
 November 24th Update
 Began adding to paper and presentation. Knocked out part of "Backgroung/Into" and part of methods. Will need to add more as the week progresses
 and will need to run the reads through STAR and RSEM. 
+
+It was noted that when trying to begin the making of the reference with STAR that there was a FATAL error in opening one of the files
+this occured because one of the files was entered incorrectly. Rerunning the program will hopefully alleviate the issue and then
+the process can continue. (Line said to assemble with .gt not .gtf. If FATAL error occurs again will look to rerun)
+The following code was rerun : STAR --runMode genomeGenerate --genomeDir star_data --genomeFastaFiles Homo_sapiens.GRCh38.dna.primary_assembly.fa --sjdbGTFfile Homo_sapiens.GRCh38.86.gtf

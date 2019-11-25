@@ -100,4 +100,9 @@ Code ran well with no errors. Following the successful run the DMSO reads were t
 DMSO1: STAR --genomeDir star_data --readFilesIn DMSO_1_R1.cutadapt.fastq DMSO_1_R2.cutadapt.fastq --outSAMtype BAM SortedByCoordinate --outSAMunmapped Within --twopassMode Basic --outFilterMultimapNmax 1 --quantMode TranscriptomeSAM --outFileNamePrefix "DMSO1"
 (Remember that /fastq files need to be  in the same foler as you are running STAR)
 
+DMSO2: STAR --genomeDir star_data --readFilesIn DMSO_2_R1.cutadapt.fastq DMSO_2_R2.cutadapt.fastq --outSAMtype BAM SortedByCoordinate --outSAMunmapped Within --twopassMode Basic --outFilterMultimapNmax 1 --quantMode TranscriptomeSAM --outFileNamePrefix "DMSO2"
+
+WA1: 
+
+WA2:
 

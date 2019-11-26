@@ -117,5 +117,5 @@ Following the preparation of the reference, the reads obtained from STAR could t
 was used for the DMSO reads.
 
 DMSO1: rsem-calculate-expression --bam --no-bam-output --paired-end --forward-prob 0 DMSO1Aligned.toTranscriptome.out.bam RSEM/GRCh38 out >& RSEM.log
-
+RSEM unable to find the reference file? Will remake reference and see what happens. 
 DMSO2:

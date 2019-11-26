@@ -110,3 +110,12 @@ WA2:
 November 26th Update
 STAR Ran successfully on Dr. Techtmanns server, above code still applies. Will be running the remaining DMSO reads and starting WA reads
 today. Hopefully RSEM later today or tomorrow so that RStudio Analysis can begin. 
+Began RSEM by first making a reference for it to use.
+
+Code for reference transriptome: rsem-prepare-reference --gtf Homo_sapiens.GRCh38.86.gtf Homo_sapiens.GRCh38.dna.primary_assembly.fa RSEM/GRCh38
+Following the preparation of the reference, the reads obtained from STAR could then be mapped to count transcripts. The following code
+was used for the DMSO reads.
+
+DMSO1: rsem-calculate-expression --bam --no-bam-output --paired-end --forward-prob 0 DMSO1Aligned.toTranscriptome.out.bam RSEM/GRCh38 out >& RSEM.log
+
+DMSO2:

@@ -97,13 +97,16 @@ the process can continue. (Line said to assemble with .gt not .gtf. If FATAL err
 The following code was rerun : STAR --runMode genomeGenerate --genomeDir star_data --genomeFastaFiles Homo_sapiens.GRCh38.dna.primary_assembly.fa --sjdbGTFfile Homo_sapiens.GRCh38.86.gtf
 Code ran well with no errors. Following the successful run the DMSO reads were then run through STAR for mapping and alignment. 
 
-DMSO1: STAR --genomeDir star_data --readFilesIn DMSO_1_R1.cutadapt.fastq DMSO_1_R2.cutadapt.fastq --outSAMtype BAM SortedByCoordinate --outSAMunmapped Within --twopassMode Basic --outFilterMultimapNmax 1 --quantMode TranscriptomeSAM --outFileNamePrefix "DMSO1"
+DMSO1: STAR --genomeDir star --readFilesIn DMSO_1_R1.cutadapt.fastq DMSO_1_R2.cutadapt.fastq --outSAMtype BAM SortedByCoordinate --outSAMunmapped Within --twopassMode Basic --outFilterMultimapNmax 1 --quantMode TranscriptomeSAM --outFileNamePrefix "DMSO1"
 (Remember that /fastq files need to be  in the same foler as you are running STAR)
 (FATAL ERROR: need to increase Disk space or ulimit -n? Waiting to hear back before continuing.)
 
-DMSO2: STAR --genomeDir star_data --readFilesIn DMSO_2_R1.cutadapt.fastq DMSO_2_R2.cutadapt.fastq --outSAMtype BAM SortedByCoordinate --outSAMunmapped Within --twopassMode Basic --outFilterMultimapNmax 1 --quantMode TranscriptomeSAM --outFileNamePrefix "DMSO2"
+DMSO2: STAR --genomeDir star --readFilesIn DMSO_2_R1.cutadapt.fastq DMSO_2_R2.cutadapt.fastq --outSAMtype BAM SortedByCoordinate --outSAMunmapped Within --twopassMode Basic --outFilterMultimapNmax 1 --quantMode TranscriptomeSAM --outFileNamePrefix "DMSO2"
 
-WA1: 
+WA1: STAR --genomeDir star --readFilesIn WA_1_R1.cutadapt.fastq WA_1_R2.cutadapt.fastq --outSAMtype BAM SortedByCoordinate --outSAMunmapped Within --twopassMode Basic --outFilterMultimapNmax 1 --quantMode TranscriptomeSAM --outFileNamePrefix "WA1"
 
 WA2:
 
+November 26th Update
+STAR Ran successfully on Dr. Techtmanns server, above code still applies. Will be running the remaining DMSO reads and starting WA reads
+today. Hopefully RSEM later today or tomorrow so that RStudio Analysis can begin. 

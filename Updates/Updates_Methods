@@ -105,7 +105,7 @@ DMSO2: STAR --genomeDir star --readFilesIn DMSO_2_R1.cutadapt.fastq DMSO_2_R2.cu
 
 WA1: STAR --genomeDir star --readFilesIn WA_1_R1.cutadapt.fastq WA_1_R2.cutadapt.fastq --outSAMtype BAM SortedByCoordinate --outSAMunmapped Within --twopassMode Basic --outFilterMultimapNmax 1 --quantMode TranscriptomeSAM --outFileNamePrefix "WA1"
 
-WA2:
+WA2: STAR --genomeDir star --readFilesIn WA_2_R1.cutadapt.fastq WA_2_R2.cutadapt.fastq --outSAMtype BAM SortedByCoordinate --outSAMunmapped Within --twopassMode Basic --outFilterMultimapNmax 1 --quantMode TranscriptomeSAM --outFileNamePrefix "WA2"
 
 November 26th Update
 STAR Ran successfully on Dr. Techtmanns server, above code still applies. Will be running the remaining DMSO reads and starting WA reads
@@ -116,6 +116,32 @@ Code for reference transriptome: rsem-prepare-reference --gtf Homo_sapiens.GRCh3
 Following the preparation of the reference, the reads obtained from STAR could then be mapped to count transcripts. The following code
 was used for the DMSO reads.
 
-DMSO1: rsem-calculate-expression --bam --no-bam-output --paired-end --forward-prob 0 DMSO1Aligned.toTranscriptome.out.bam RSEM/GRCh38 out >& RSEM.log
-RSEM unable to find the reference file? Will remake reference and see what happens. 
-DMSO2:
+DMSO1: rsem-calculate-expression --bam --no-bam-output --paired-end --forward-prob 0 DMSO1Aligned.toTranscriptome.out.bam rsem/GRCh38 out >& rsem1.log
+
+DMSO2: rsem-calculate-expression --bam --no-bam-output --paired-end --forward-prob 0 DMSO2Aligned.toTranscriptome.out.bam rsem/GRCh38 out >& rsem2.log
+
+Nov 27th Updates
+Remade the reference for RSEM. Doing so seemed to aliviate the problem, however nothing appears when RSEM is running. Above code still works though. 
+After stopping rsem after ~5 min (29000000 entries parsed) After ~1 hour or so (Working well, DO NOT STOP PROGRAM NOW!)
+
+Transcript counting successfull, now just need to see what I can do with the .results files. Will look to make them into tables
+or .csv for input into RStudio. Also in order to get rsem data into RStudio to use DESeq2 we needed to install "tximport" and "tximeta" into RStudio
+The following code was used: if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("tximport")
+
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("tximeta")
+
+Code for Withgaferin A rsem
+
+WA1: rsem-calculate-expression --bam --no-bam-output --paired-end --forward-prob 0 WA1Aligned.toTranscriptome.out.bam rsem/GRCh38 out >& rsem3.log
+WA2: rsem-calculate-expression --bam --no-bam-output --paired-end --forward-prob 0 WA2Aligned.toTranscriptome.out.bam rsem/GRCh38 out >& rsem4.log
+
+Once all runs were completed the data was downloaded from the server so that it could be imported into R using "tximport" or "tximeta".
+Once imported the final steps (DESEq2) and analysis could occur!
+
+

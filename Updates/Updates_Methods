@@ -144,4 +144,100 @@ WA2: rsem-calculate-expression --bam --no-bam-output --paired-end --forward-prob
 Once all runs were completed the data was downloaded from the server so that it could be imported into R using "tximport" or "tximeta".
 Once imported the final steps (DESEq2) and analysis could occur!
 
+November 28th Updates
+To make generation of tables easier for comparision the following code was used to bring the data from each of the four out.genes.results
+files and make a single table or comparison in R. 
+
+rsem-generate-data-matrix DMSO1.ou.genes.results DMSO2.out.genes.results WA1.out.genes.results WA2.out.genes.results > DMSOvWA.counts.matrix
+
+This code essentally allowed for the generation of a table that compares the expected of each gene from each RSEM results file. This then allows us
+to compare these genes in differental gene analysis using DESeq2 in RStudio. In addtion each .results file was brought into R manually
+using the Import Dataset function in RStudio. 
+
+Code from RStudio is below:
+
+#Topic of Choice Code for R
+
+#First needed to install packages such as tidyverse, readr, and DESEq2
+install.packages("readr")
+install.packages("tidyverse")
+if (!requireNamespace("BiocManager", quietly = TRUE)) install.packages("BiocManager") 
+BiocManager::install("DESeq2")
+#For help bringing in RSEM transcript data need "tximport" Use following code
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+
+BiocManager::install("tximport")
+#tximport will generate a list that can then be used with DESeq2. 
+#Also install "tximeta" for metadata etc. 
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+
+BiocManager::install("tximeta")
+
+# BC unable to use the above programs with RSEM data, manual importaiton was required.
+# Removed transcript IDs from each dataset to make cleaner using the following code structure (one set of IDs was kept for comparison table)
+DMSO1res$transcript_id.s. <- NULL
+
+#Following this structure trranscript IDs were removed from all dataset files. 
+#Next a larger counts table needed to be generated that compared all of the values from each run. The following code was used. 
+
+#Attempted to import files using tximport using following code:
+txi.rsem <- tximport(files, type = ("rsem"), txIn = FALSE, txOut = FALSE)
+#This worked successfully. Generated a file called txi.rsem will a large data list and a "counts" table that contained
+#expected length data that could be used for DESeq2. 
+#After generation, when trying to make the dds file, all (lengths > 0) is not TRUE came up. To aleviate this issue
+# ran the following code before making it a dds file with.
+txi.rsem$length[txi.rsem$length == 0] <- 1
+
+#This essentially allowed for ther dds to be generated using the following code:
+dds <- DESeqDataSetFromTximport(txi.rsem,Table, ~condition)
+#This then allowed the dds to be used with DESeq2. The generation of 0 -> 1 only changed those lengths that were 0
+#or genes that were not affected to 1. 
+
+#DESeq data was run with the following code
+#First open all needed libraries
+library(readr)
+library(tidyverse)
+library(DESeq2)
+#After opening the library then could run DESeq2:
+ddss <- DESeq(dds)
+res <- results(ddss, tidy=TRUE)
+#This code ran the DESeq program and put the "results" into the file called ddss
+#The results were then pulled from this file and put into a new file called res
+#Another file was then generated called res2. This was generated using the following code and put the genes in order of
+#their adjusted p-value. 
+res2 <- arrange(res,padj)
+#From here two more files were generated in order to compare the DMSO control to the Withaferin A results. 
+#The following code generated two new results files based upon the significantly different genes
+res3 <- filter(res2, padj<=0.05 & log2FoldChange>=2)
+res4 <- filter(res2, padj<=0.05 & log2FoldChange<=-2)
+#res3 contained those genes that were significantly different in the treatment (WA) compared to the control (DMSO)
+#This means that those genes are upregulated in the treatment
+#res4 contained those genes that were significantly different in the control (DMSO) compared to the treatment (WA)
+#This means that these genes are downregulated. 
+
+#However, we also wanted the total number of genes downregulated and uppregulated for comparison to the orignal study
+#The following code allowed us tto do so. 
+res5 <- filter(res2, padj<=0.05 & log2FoldChange > 0)
+res6 <- filter(res2, padj<=0.05 & log2FoldChange < 0)
+#This should give a more accurate representaiton of how many genes in total were upregulated or downregulated, 
+#Although it might not convey significance like res3 and res4 do. 
+
+#It is good to note that the numbers obtained through this method are much lower than in the original
+#Upregulated orignal (6993) vs Upregulated by me (478 or 830)
+#Downregulated oringial (6607) vs Downregulated by me (389 or 648)
+
+Why these numbers are overall lower than the orignal could be explained by a multitude of answers such as:
+1. The usage of a more updated Human Genome
+2. RSEM or STAR not working correctly 
+3. The usage of different programs (I used STAR and RSEM, while the original used HTSeq and edgeR in additon to DESeq2)
+4. Not using the correct code to display the data. (Will try messing with this more).
+
+
+
+
+
+
+
 

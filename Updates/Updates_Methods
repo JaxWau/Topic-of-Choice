@@ -234,7 +234,88 @@ Why these numbers are overall lower than the orignal could be explained by a mul
 3. The usage of different programs (I used STAR and RSEM, while the original used HTSeq and edgeR in additon to DESeq2)
 4. Not using the correct code to display the data. (Will try messing with this more).
 
+#Will try to manipulate data more to see if anything else can be seen as it is a 58051 obs file.
+#Following code was used in order to get the total (including non-significat) data for upregulation and downregulation
+#within the treatment (WA) cell genome.
+res7 <- filter(res2, log2FoldChange >0) #This was for upregulated genes: total 9518
+res8 <- filter(res2, log2FoldChange <0) #This was for downregulated genes: total 15166
 
+#To make it easier to see control vs treatment added this line to res2
+res2 = mutate(res2, Regulation=ifelse(log2FoldChange>0,"Upregulated in Treatment","Downregulated in Treatment"))
+
+#Finally able to make plots for the data. 
+#Code for Volcano plot of res2 or the "Oringinal Results"
+volcano1 <- ggplot(res2) +
+  geom_point(aes(x=log2FoldChange, y=-log10(padj), colour = Regulation))+
+  ggtitle("Upregulated and Downregulated Genes in Treated Cells")+
+  xlab("Log2FoldChange")+
+  ylab("-long10 Adjusted P-value")+
+  #scale_y_continuous(limits=c(0.50))+
+  theme(legend.position= "none", plot.title = element_text(size=rel(1.5), hjust = 0.5), axis.title = element_text(size =rel(1.25)))+
+  theme_bw()
+plot(volcano1)
+
+#Some of the rows were deleted as they did not contain any values, which is ok. 
+#Here is the code to show the Significantly Differentially Expressed genes. This was done by merging the results found in res3 and res4.
+resUp<- res3
+resDown <-res4
+resGenes <- rbind(resUp,resDown)
+resGenes=mutate(resGenes, Regulation=ifelse(log2FoldChange>0,"Upregulated in Treatment","Downregulated in Treatment"))
+
+Vol2 <- ggplot(resGenes)+
+  geom_point(aes(x=log2FoldChange, y=-log10(padj), color=Regulation))+
+  ggtitle("Significant Genes")+
+  xlab("Log2FoldChange")+
+  ylab("-log10 Adjusted P-value")+
+  #scale_y_continuous(limmits=c(0,50))+
+  theme(legend.position= "none", plot.title = element_text(size=rel(1.5), hjust = 0.5), axis.title = element_text(size =rel(1.25)))+
+  theme_bw()
+plot(Vol2)
+
+#Box plots for the three most highly upregulated and downregulated of the significant genes. These are taken from res3 and res4. 
+#Those genes for Upregulation are : ENSG00000173110, ENSG00000015592, and ENSG00000146592
+#The genes for Downregulation are: ENSG00000074966, ENSG00000272921, ENSG00000253633
+#Code for Boxplots: Upregulation
+#Upreg1:
+plotCounts(dds, gene="ENSG00000173110", intgroup="condition", returnData=TRUE) %>%
+  ggplot(aes(condition,count))+
+  geom_boxplot(aes(fill=condition))+
+  scale_y_log10() + 
+  ggtitle("ENSG00000173110")
+#Upreg 2:
+plotCounts(dds, gene="ENSG00000015592", intgroup="condition", returnData=TRUE) %>%
+  ggplot(aes(condition,count))+
+  geom_boxplot(aes(fill=condition))+
+  scale_y_log10() + 
+  ggtitle("ENSG00000015592")
+#Upreg 3:
+plotCounts(dds, gene="ENSG00000146592", intgroup="condition", returnData=TRUE) %>%
+  ggplot(aes(condition,count))+
+  geom_boxplot(aes(fill=condition))+
+  scale_y_log10() + 
+  ggtitle("ENSG00000146592")
+
+#For Downregulated genes
+#Down1:
+plotCounts(dds, gene="ENSG00000074966", intgroup="condition", returnData=TRUE) %>%
+  ggplot(aes(condition,count))+
+  geom_boxplot(aes(fill=condition))+
+  scale_y_log10() + 
+  ggtitle("ENSG00000074966")
+#Down2
+plotCounts(dds, gene="ENSG00000272921", intgroup="condition", returnData=TRUE) %>%
+  ggplot(aes(condition,count))+
+  geom_boxplot(aes(fill=condition))+
+  scale_y_log10() + 
+  ggtitle("ENSG00000272921")
+#Down3
+plotCounts(dds, gene="ENSG00000253633", intgroup="condition", returnData=TRUE) %>%
+  ggplot(aes(condition,count))+
+  geom_boxplot(aes(fill=condition))+
+  scale_y_log10() + 
+  ggtitle("ENSG00000253633")
+#Following the generation of these plots the project was then complete. All that needed to be done was to insert these into 
+#The presentation and the paper.
 
 
 
